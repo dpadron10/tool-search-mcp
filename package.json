@@ -1,0 +1,74 @@
+{
+  "name": "tool-search-mcp",
+  "description": "High-performance semantic tool search for Claude Code. Save 97% tokens with intelligent MCP tool discovery.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Imamuzzaki Abu Salam",
+    "email": "imamuzzaki@gmail.com",
+    "url": "https://github.com/ImBIOS"
+  },
+  "bugs": {
+    "url": "https://github.com/ImBIOS/tool-search-mcp/issues",
+    "email": "imamuzzaki@gmail.com"
+  },
+  "homepage": "https://github.com/ImBIOS/tool-search-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ImBIOS/tool-search-mcp.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "mcp",
+    "model-context-protocol",
+    "tool-search",
+    "semantic-search",
+    "embeddings",
+    "ollama",
+    "token-optimization",
+    "ai-agents",
+    "llm-tools"
+  ],
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.51.2",
+    "@modelcontextprotocol/sdk": "^1.25.2",
+    "elysia": "^1.4.22",
+    "micromatch": "^4.0.8",
+    "ollama": "^0.6.3",
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
+    "ink": "^6.6.0",
+    "react": "^19.2.3",
+    "@biomejs/biome": "2.3.11",
+    "@types/bun": "^1.3.4",
+    "@types/micromatch": "^4.0.10",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "typescript": "^5.9.3",
+    "ultracite": "7.0.11"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+      "bun ultracite fix"
+    ]
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "benchmark": "bun --bun run src/benchmark/main.ts",
+    "benchmark:cli": "bun --bun run src/benchmark/cli.tsx",
+    "config": "bun --bun run src/cli/config.ts",
+    "build": "tsc",
+    "check-types": "tsc --noEmit",
+    "dev": "bun --bun --hot run src/index.ts",
+    "format:ws": "bun x syncpack@alpha format",
+    "postinstall": "bun run format:ws",
+    "prepare": "husky",
+    "start": "bun dist/index.js",
+    "test": "bun test"
+  }
+}
